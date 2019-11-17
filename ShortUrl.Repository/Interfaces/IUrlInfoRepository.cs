@@ -9,7 +9,7 @@ namespace ShortUrl.Repository.Interfaces
         bool Update(UrlInfoEntity urlInfo);
         UrlInfoEntity GetUrlInfoByShortCode(string shortCode);
         UrlInfoEntity GetUrlInfoByOriginalUrl(string originalUrl);
-        IEnumerable<UrlInfoEntity> GetAll(int pageNumber, int pageSize);
-        bool Delete(long id);
+        //IEnumerable<UrlInfoEntity> GetAll(int pageNumber, int pageSize);
+        //bool Delete(long id);
     }
 }

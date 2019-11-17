@@ -1,5 +1,6 @@
 ﻿using System.Net;
 using System.Text.RegularExpressions;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using ShortUrl.Domain;
 using ShortUrl.Domain.Enums;
@@ -43,8 +44,8 @@ namespace ShortUrl.Service.Implementations
         {
             return new OperationResult
             {
-                Result = Result.Succeed,
-                Message = "Valid url.",
+                OperationStatus = OperationStatus.Succeed,
+                Value = "Valid url.",
                 Code = _serviceHelper.IsShortUrl(url) ? UrlType.ShortUrl.ToString() : UrlType.LongUrl.ToString()
             };
         }
@@ -53,9 +54,9 @@ namespace ShortUrl.Service.Implementations
         {
             return new OperationResult
             {
-                Result = Result.Failed,
-                Message = message,
-                Code = HttpStatusCode.BadRequest.ToString()
+                OperationStatus = OperationStatus.Failed,
+                Value = message,
+                Code = StatusCodes.Status400BadRequest.ToString()
             };
         }
 
@@ -74,8 +75,8 @@ namespace ShortUrl.Service.Implementations
         {
             return new OperationResult
             {
-                Result = Result.Succeed,
-                Message = "Valid short code.",
+                OperationStatus = OperationStatus.Succeed,
+                Value = "Valid short code.",
                 Code = UrlType.ShortUrl.ToString()
             };
         }

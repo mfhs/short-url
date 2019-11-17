@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Linq;
 using System.Net;
 using Microsoft.AspNetCore.Http;
 using ShortUrl.Domain.Enums;
@@ -44,7 +43,7 @@ namespace ShortUrl.Service.Implementations
             lock (_lock)
             {                
                 var validationResult = _validationService.IsValidUrl(url);
-                if (validationResult.Result == Result.Failed) return validationResult;
+                if (validationResult.OperationStatus == OperationStatus.Failed) return validationResult;
 
                 // TODO: encodedUrl for safety
                 var encodedUrl = WebUtility.UrlEncode(url);
@@ -99,7 +98,7 @@ namespace ShortUrl.Service.Implementations
         {
             var shortCode = _serviceHelper.GetShortCodeFromUrl(shortUrl);
             var result = _validationService.IsValidShortCode(shortCode);
-            if (result.Result == Result.Failed) return result;
+            if (result.OperationStatus == OperationStatus.Failed) return result;
 
             var urlInfo = _urlInfoRepository.GetUrlInfoByShortCode(shortCode);
             return urlInfo == null
@@ -113,9 +112,9 @@ namespace ShortUrl.Service.Implementations
             var shortUrl = $"{shortUrlBaseAddress}{shortCode}";
             return new OperationResult
             {
-                Result = Result.Succeed,
+                OperationStatus = OperationStatus.Succeed,
                 Code = StatusCodes.Status200OK.ToString(),
-                Message = shortUrl
+                Value = shortUrl
             };
         }
 
@@ -123,9 +122,9 @@ namespace ShortUrl.Service.Implementations
         {
             return new OperationResult
             {
-                Result = Result.Succeed,
+                OperationStatus = OperationStatus.Succeed,
                 Code = StatusCodes.Status200OK.ToString(),
-                Message = WebUtility.UrlDecode(originalUrl)
+                Value = WebUtility.UrlDecode(originalUrl)
             };
         }
 
@@ -133,9 +132,9 @@ namespace ShortUrl.Service.Implementations
         {
             return new OperationResult
             {
-                Result = Result.Failed,
-                Message = "No record found!",
-                Code = HttpStatusCode.NotFound.ToString()
+                OperationStatus = OperationStatus.Failed,
+                Value = "No record found!",
+                Code = StatusCodes.Status404NotFound.ToString()
             };
         }
 
@@ -143,9 +142,9 @@ namespace ShortUrl.Service.Implementations
         {
             return new OperationResult
             {
-                Result = Result.Failed,
-                Code = HttpStatusCode.Conflict.ToString(),
-                Message = $"ShortCode conflict occured in DB with {_numberOfTryIfDuplicateShortCode} try!"
+                OperationStatus = OperationStatus.Failed,
+                Code = StatusCodes.Status409Conflict.ToString(),
+                Value = $"ShortCode conflict occured in DB with {_numberOfTryIfDuplicateShortCode} try!"
             };
         }
     }

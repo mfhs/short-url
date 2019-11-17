@@ -45,7 +45,7 @@ namespace ShortUrl.Service.Helpers
         public string GetShortUrlBaseAddress(string url)
         {
             // TODO: Instead of Constant, we can move to config file
-            var baseAddress = url.StartsWith(ShortUrlInfo.SecureDomain)
+            var baseAddress = url.StartsWith(Uri.UriSchemeHttps)
                 ? ShortUrlInfo.SecureDomain
                 : ShortUrlInfo.HttpDomain;
 

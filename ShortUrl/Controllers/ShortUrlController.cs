@@ -25,21 +25,21 @@ namespace ShortUrl.Controllers
         {
             var operationResult = _shortenerService.Shorten(url);
 
-            return operationResult.Result == Result.Succeed
-                ? new OkObjectResult(operationResult.Message)
+            return operationResult.OperationStatus == OperationStatus.Succeed
+                ? new OkObjectResult(operationResult.Value)
                 : GetFailedActionResult(operationResult);
         }
 
         private static ActionResult GetFailedActionResult(OperationResult operationResult)
         {
-            if (operationResult.Code == HttpStatusCode.BadRequest.ToString())
-                return new BadRequestObjectResult(operationResult.Message);
+            if (operationResult.Code == StatusCodes.Status400BadRequest.ToString())
+                return new BadRequestObjectResult(operationResult.Value);
 
-            if (operationResult.Code == HttpStatusCode.NotFound.ToString())
-                return new NotFoundObjectResult(operationResult.Message);
+            if (operationResult.Code == StatusCodes.Status404NotFound.ToString())
+                return new NotFoundObjectResult(operationResult.Value);
 
-            return operationResult.Code == HttpStatusCode.Conflict.ToString()
-                ? (ActionResult) new ConflictObjectResult(new DBConcurrencyException(operationResult.Message))
+            return operationResult.Code == StatusCodes.Status409Conflict.ToString()
+                ? (ActionResult) new ConflictObjectResult(new DBConcurrencyException(operationResult.Value))
                 : new StatusCodeResult(StatusCodes.Status500InternalServerError);
         }
     }

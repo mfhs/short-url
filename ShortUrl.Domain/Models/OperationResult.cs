@@ -4,9 +4,9 @@ namespace ShortUrl.Domain.Models
 {
     public class OperationResult
     {
-        public Result Result { get; set; }
+        public OperationStatus OperationStatus { get; set; }
 
-        public string Message { get; set; }
+        public string Value { get; set; }
 
         public string Code { get; set; }
     }

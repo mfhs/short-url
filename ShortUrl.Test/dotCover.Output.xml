@@ -1,0 +1,631 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Root CoveredStatements="263" TotalStatements="1373" CoveragePercent="19" ReportType="Xml" DotCoverVersion="2019.2">
+  <Assembly Name="ShortUrl.Domain" CoveredStatements="6" TotalStatements="8" CoveragePercent="75">
+    <Namespace Name="ShortUrl.Domain.Models" CoveredStatements="6" TotalStatements="8" CoveragePercent="75">
+      <Type Name="AppSettings" CoveredStatements="0" TotalStatements="2" CoveragePercent="0">
+        <AutoProperty Name="UrlValidationRegex:string" CoveredStatements="0" TotalStatements="2" CoveragePercent="0">
+          <PropertyGetter CoveredStatements="0" TotalStatements="1" CoveragePercent="0" />
+          <PropertySetter CoveredStatements="0" TotalStatements="1" CoveragePercent="0" />
+        </AutoProperty>
+      </Type>
+      <Type Name="OperationResult" CoveredStatements="6" TotalStatements="6" CoveragePercent="100">
+        <AutoProperty Name="Code:string" CoveredStatements="2" TotalStatements="2" CoveragePercent="100">
+          <PropertyGetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+          <PropertySetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+        </AutoProperty>
+        <AutoProperty Name="OperationStatus:OperationStatus" CoveredStatements="2" TotalStatements="2" CoveragePercent="100">
+          <PropertyGetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+          <PropertySetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+        </AutoProperty>
+        <AutoProperty Name="Value:string" CoveredStatements="2" TotalStatements="2" CoveragePercent="100">
+          <PropertyGetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+          <PropertySetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+        </AutoProperty>
+      </Type>
+    </Namespace>
+  </Assembly>
+  <Assembly Name="ShortUrl.Repository" CoveredStatements="8" TotalStatements="125" CoveragePercent="6">
+    <Namespace Name="ShortUrl.Repository" CoveredStatements="0" TotalStatements="11" CoveragePercent="0">
+      <Type Name="AppDbContext" CoveredStatements="0" TotalStatements="5" CoveragePercent="0">
+        <Constructor Name="AppDbContext(DbContextOptions&lt;AppDbContext&gt;)" CoveredStatements="0" TotalStatements="3" CoveragePercent="0" />
+        <AutoProperty Name="UrlInfo:DbSet&lt;UrlInfoEntity&gt;" CoveredStatements="0" TotalStatements="2" CoveragePercent="0">
+          <PropertyGetter CoveredStatements="0" TotalStatements="1" CoveragePercent="0" />
+          <PropertySetter CoveredStatements="0" TotalStatements="1" CoveragePercent="0" />
+        </AutoProperty>
+      </Type>
+      <Type Name="AppDbContextFactory" CoveredStatements="0" TotalStatements="6" CoveragePercent="0">
+        <Method Name="CreateDbContext(string[]):AppDbContext" CoveredStatements="0" TotalStatements="6" CoveragePercent="0" />
+      </Type>
+    </Namespace>
+    <Namespace Name="ShortUrl.Repository.Entities" CoveredStatements="8" TotalStatements="14" CoveragePercent="57">
+      <Type Name="BaseEntity" CoveredStatements="4" TotalStatements="8" CoveragePercent="50">
+        <AutoProperty Name="CreatedBy:string" CoveredStatements="1" TotalStatements="2" CoveragePercent="50">
+          <PropertyGetter CoveredStatements="0" TotalStatements="1" CoveragePercent="0" />
+          <PropertySetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+        </AutoProperty>
+        <AutoProperty Name="CreatedDate:DateTime" CoveredStatements="1" TotalStatements="2" CoveragePercent="50">
+          <PropertyGetter CoveredStatements="0" TotalStatements="1" CoveragePercent="0" />
+          <PropertySetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+        </AutoProperty>
+        <AutoProperty Name="ExpireDate:DateTime" CoveredStatements="1" TotalStatements="2" CoveragePercent="50">
+          <PropertyGetter CoveredStatements="0" TotalStatements="1" CoveragePercent="0" />
+          <PropertySetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+        </AutoProperty>
+        <AutoProperty Name="Id:long" CoveredStatements="1" TotalStatements="2" CoveragePercent="50">
+          <PropertyGetter CoveredStatements="0" TotalStatements="1" CoveragePercent="0" />
+          <PropertySetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+        </AutoProperty>
+      </Type>
+      <Type Name="UrlInfoEntity" CoveredStatements="4" TotalStatements="6" CoveragePercent="67">
+        <AutoProperty Name="OriginalUrl:string" CoveredStatements="2" TotalStatements="2" CoveragePercent="100">
+          <PropertyGetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+          <PropertySetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+        </AutoProperty>
+        <AutoProperty Name="ShortCode:string" CoveredStatements="1" TotalStatements="2" CoveragePercent="50">
+          <PropertyGetter CoveredStatements="0" TotalStatements="1" CoveragePercent="0" />
+          <PropertySetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+        </AutoProperty>
+        <AutoProperty Name="UrlHits:long" CoveredStatements="1" TotalStatements="2" CoveragePercent="50">
+          <PropertyGetter CoveredStatements="0" TotalStatements="1" CoveragePercent="0" />
+          <PropertySetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+        </AutoProperty>
+      </Type>
+    </Namespace>
+    <Namespace Name="ShortUrl.Repository.Implementations" CoveredStatements="0" TotalStatements="60" CoveragePercent="0">
+      <Type Name="UrlInfoRepository" CoveredStatements="0" TotalStatements="60" CoveragePercent="0">
+        <Constructor Name="UrlInfoRepository(AppDbContext)" CoveredStatements="0" TotalStatements="5" CoveragePercent="0" />
+        <Method Name="GetUrlInfoByOriginalUrl(string):UrlInfoEntity" CoveredStatements="0" TotalStatements="13" CoveragePercent="0" />
+        <Method Name="GetUrlInfoByShortCode(string):UrlInfoEntity" CoveredStatements="0" TotalStatements="13" CoveragePercent="0" />
+        <Method Name="Insert(UrlInfoEntity):bool" CoveredStatements="0" TotalStatements="11" CoveragePercent="0" />
+        <Method Name="Update(UrlInfoEntity):bool" CoveredStatements="0" TotalStatements="11" CoveragePercent="0" />
+        <Method Name="UpdateUrlHits(UrlInfoEntity):void" CoveredStatements="0" TotalStatements="7" CoveragePercent="0" />
+      </Type>
+    </Namespace>
+    <Namespace Name="ShortUrl.Repository.Migrations" CoveredStatements="0" TotalStatements="40" CoveragePercent="0">
+      <Type Name="AppDbContextModelSnapshot" CoveredStatements="0" TotalStatements="15" CoveragePercent="0">
+        <Method Name="BuildModel(ModelBuilder):void" CoveredStatements="0" TotalStatements="15" CoveragePercent="0">
+          <OwnCoverage CoveredStatements="0" TotalStatements="4" CoveragePercent="0" />
+          <AnonymousMethod Name="(EntityTypeBuilder):void" CoveredStatements="0" TotalStatements="11" CoveragePercent="0" />
+        </Method>
+      </Type>
+      <Type Name="InitialMigration" CoveredStatements="0" TotalStatements="25" CoveragePercent="0">
+        <Method Name="BuildTargetModel(ModelBuilder):void" CoveredStatements="0" TotalStatements="15" CoveragePercent="0">
+          <OwnCoverage CoveredStatements="0" TotalStatements="4" CoveragePercent="0" />
+          <AnonymousMethod Name="(EntityTypeBuilder):void" CoveredStatements="0" TotalStatements="11" CoveragePercent="0" />
+        </Method>
+        <Method Name="Down(MigrationBuilder):void" CoveredStatements="0" TotalStatements="3" CoveragePercent="0" />
+        <Method Name="Up(MigrationBuilder):void" CoveredStatements="0" TotalStatements="7" CoveragePercent="0">
+          <OwnCoverage CoveredStatements="0" TotalStatements="3" CoveragePercent="0" />
+          <AnonymousMethod Name="(ColumnsBuilder):{OperationBuilder&lt;AddColumnOperation&gt;,OperationBuilder&lt;AddColumnOperation&gt;,OperationBuilder&lt;AddColumnOperation&gt;,OperationBuilder&lt;AddColumnOperation&gt;,OperationBuilder&lt;AddColumnOperation&gt;,OperationBuilder&lt;AddColumnOperation&gt;,OperationBuilder&lt;AddColumnOperation&gt;}" CoveredStatements="0" TotalStatements="1" CoveragePercent="0" />
+          <AnonymousMethod Name="(CreateTableBuilder&lt;{OperationBuilder&lt;AddColumnOperation&gt;,OperationBuilder&lt;AddColumnOperation&gt;,OperationBuilder&lt;AddColumnOperation&gt;,OperationBuilder&lt;AddColumnOperation&gt;,OperationBuilder&lt;AddColumnOperation&gt;,OperationBuilder&lt;AddColumnOperation&gt;,OperationBuilder&lt;AddColumnOperation&gt;}&gt;):void" CoveredStatements="0" TotalStatements="3" CoveragePercent="0" />
+        </Method>
+      </Type>
+    </Namespace>
+  </Assembly>
+  <Assembly Name="ShortUrl.Service" CoveredStatements="125" TotalStatements="138" CoveragePercent="91">
+    <Namespace Name="ShortUrl.Service.Helpers" CoveredStatements="38" TotalStatements="39" CoveragePercent="97">
+      <Type Name="ServiceHelper" CoveredStatements="38" TotalStatements="39" CoveragePercent="97">
+        <Constructor Name="ServiceHelper(IConfiguration)" CoveredStatements="7" TotalStatements="7" CoveragePercent="100" />
+        <Method Name="GenerateShortCode(int):string" CoveredStatements="14" TotalStatements="14" CoveragePercent="100" />
+        <Method Name="GetShortCodeFromUrl(string):string" CoveredStatements="6" TotalStatements="7" CoveragePercent="86" />
+        <Method Name="GetShortCodeLength(string):int" CoveredStatements="4" TotalStatements="4" CoveragePercent="100" />
+        <Method Name="GetShortUrlBaseAddress(string):string" CoveredStatements="4" TotalStatements="4" CoveragePercent="100" />
+        <Method Name="IsShortUrl(string):bool" CoveredStatements="3" TotalStatements="3" CoveragePercent="100" />
+      </Type>
+    </Namespace>
+    <Namespace Name="ShortUrl.Service.Implementations" CoveredStatements="87" TotalStatements="99" CoveragePercent="88">
+      <Type Name="ShortenerService" CoveredStatements="57" TotalStatements="68" CoveragePercent="84">
+        <Constructor Name="ShortenerService(IConfiguration,ServiceHelper,IValidationService,IUrlInfoRepository)" CoveredStatements="10" TotalStatements="10" CoveragePercent="100" />
+        <Method Name="CreateUrlInfoObject(string,string):UrlInfoEntity" CoveredStatements="3" TotalStatements="3" CoveragePercent="100" />
+        <Method Name="GetConflictOperationResult():OperationResult" CoveredStatements="0" TotalStatements="3" CoveragePercent="0" />
+        <Method Name="GetNotFoundOperationResult():OperationResult" CoveredStatements="0" TotalStatements="3" CoveragePercent="0" />
+        <Method Name="GetOriginalUrl(string):OperationResult" CoveredStatements="8" TotalStatements="8" CoveragePercent="100" />
+        <Method Name="GetShortUrl(string):OperationResult" CoveredStatements="8" TotalStatements="10" CoveragePercent="80" />
+        <Method Name="GetSuccessOperationResultForOriginalUrl(string):OperationResult" CoveredStatements="3" TotalStatements="3" CoveragePercent="100" />
+        <Method Name="GetSuccessOperationResultForShortUrl(string,string):OperationResult" CoveredStatements="5" TotalStatements="5" CoveragePercent="100" />
+        <Method Name="PrepareShortCode(string):string" CoveredStatements="10" TotalStatements="13" CoveragePercent="77" />
+        <Method Name="Shorten(string):OperationResult" CoveredStatements="10" TotalStatements="10" CoveragePercent="100" />
+      </Type>
+      <Type Name="ValidationService" CoveredStatements="30" TotalStatements="31" CoveragePercent="97">
+        <Constructor Name="ValidationService(IConfiguration,ServiceHelper)" CoveredStatements="7" TotalStatements="7" CoveragePercent="100" />
+        <Method Name="GetOperationResultObjectForInvalidUrl(string):OperationResult" CoveredStatements="3" TotalStatements="3" CoveragePercent="100" />
+        <Method Name="GetOperationResultObjectForValidShortCode():OperationResult" CoveredStatements="3" TotalStatements="3" CoveragePercent="100" />
+        <Method Name="GetOperationResultObjectForValidUrl(string):OperationResult" CoveredStatements="3" TotalStatements="3" CoveragePercent="100" />
+        <Method Name="IsMatch(string):bool" CoveredStatements="5" TotalStatements="6" CoveragePercent="83" />
+        <Method Name="IsValidShortCode(string):OperationResult" CoveredStatements="6" TotalStatements="6" CoveragePercent="100" />
+        <Method Name="IsValidUrl(string):OperationResult" CoveredStatements="3" TotalStatements="3" CoveragePercent="100" />
+      </Type>
+    </Namespace>
+  </Assembly>
+  <Assembly Name="ShortUrl.Test" CoveredStatements="72" TotalStatements="72" CoveragePercent="100">
+    <Namespace Name="ShortUrl.Test" CoveredStatements="72" TotalStatements="72" CoveragePercent="100">
+      <Type Name="ShortenerServiceTest" CoveredStatements="62" TotalStatements="62" CoveragePercent="100">
+        <Constructor Name="ShortenerServiceTest()" CoveredStatements="6" TotalStatements="6" CoveragePercent="100" />
+        <Method Name="GetUrlInfoEntityStub():UrlInfoEntity" CoveredStatements="3" TotalStatements="3" CoveragePercent="100" />
+        <Method Name="TestShortenUrlForInValidLongUrl():void" CoveredStatements="7" TotalStatements="7" CoveragePercent="100" />
+        <Method Name="TestShortenUrlForInValidShortUrl():void" CoveredStatements="7" TotalStatements="7" CoveragePercent="100" />
+        <Method Name="TestShortenUrlForUrlLength():void" CoveredStatements="14" TotalStatements="14" CoveragePercent="100" />
+        <Method Name="TestShortenUrlForValidNewLongUrl():void" CoveredStatements="14" TotalStatements="14" CoveragePercent="100" />
+        <Method Name="TestShortenUrlForValidShortUrl():void" CoveredStatements="11" TotalStatements="11" CoveragePercent="100" />
+      </Type>
+      <Type Name="TestHelper" CoveredStatements="10" TotalStatements="10" CoveragePercent="100">
+        <Method Name="GetConfiguration():IConfiguration" CoveredStatements="4" TotalStatements="4" CoveragePercent="100" />
+        <Method Name="GetServiceHelper():ServiceHelper" CoveredStatements="3" TotalStatements="3" CoveragePercent="100" />
+        <Method Name="GetValidationService():IValidationService" CoveredStatements="3" TotalStatements="3" CoveragePercent="100" />
+      </Type>
+    </Namespace>
+  </Assembly>
+  <Assembly Name="xunit.assert" CoveredStatements="52" TotalStatements="1030" CoveragePercent="5">
+    <Namespace Name="Xunit" CoveredStatements="39" TotalStatements="470" CoveragePercent="8">
+      <Type Name="Assert" CoveredStatements="39" TotalStatements="470" CoveragePercent="8">
+        <Type Name="RaisedEvent&lt;T&gt;" CoveredStatements="0" TotalStatements="6" CoveragePercent="0">
+          <Constructor Name="RaisedEvent(object,T)" CoveredStatements="0" TotalStatements="4" CoveragePercent="0" />
+          <AutoProperty Name="Arguments:T" CoveredStatements="0" TotalStatements="1" CoveragePercent="0">
+            <PropertyGetter CoveredStatements="0" TotalStatements="1" CoveragePercent="0" />
+          </AutoProperty>
+          <AutoProperty Name="Sender:object" CoveredStatements="0" TotalStatements="1" CoveragePercent="0">
+            <PropertyGetter CoveredStatements="0" TotalStatements="1" CoveragePercent="0" />
+          </AutoProperty>
+        </Type>
+        <Constructor Name="Assert()" CoveredStatements="0" TotalStatements="2" CoveragePercent="0" />
+        <Method Name="All&lt;T&gt;(IEnumerable&lt;T&gt;,Action&lt;T&gt;):void" CoveredStatements="0" TotalStatements="15" CoveragePercent="0" />
+        <Method Name="Collection&lt;T&gt;(IEnumerable&lt;T&gt;,params Action&lt;T&gt;[]):void" CoveredStatements="0" TotalStatements="13" CoveragePercent="0" />
+        <Method Name="Contains&lt;T&gt;(T,IEnumerable&lt;T&gt;):void" CoveredStatements="0" TotalStatements="5" CoveragePercent="0" />
+        <Method Name="Contains&lt;T&gt;(T,IEnumerable&lt;T&gt;,IEqualityComparer&lt;T&gt;):void" CoveredStatements="0" TotalStatements="5" CoveragePercent="0" />
+        <Method Name="Contains&lt;T&gt;(IEnumerable&lt;T&gt;,Predicate&lt;T&gt;):void" CoveredStatements="0" TotalStatements="9" CoveragePercent="0" />
+        <Method Name="Contains&lt;TKey,TValue&gt;(TKey,IReadOnlyDictionary&lt;TKey,TValue&gt;):TValue" CoveredStatements="0" TotalStatements="5" CoveragePercent="0" />
+        <Method Name="Contains&lt;TKey,TValue&gt;(TKey,IDictionary&lt;TKey,TValue&gt;):TValue" CoveredStatements="0" TotalStatements="5" CoveragePercent="0" />
+        <Method Name="Contains(string,string):void" CoveredStatements="0" TotalStatements="2" CoveragePercent="0" />
+        <Method Name="Contains(string,string,StringComparison):void" CoveredStatements="0" TotalStatements="3" CoveragePercent="0" />
+        <Method Name="DoesNotContain&lt;T&gt;(T,IEnumerable&lt;T&gt;):void" CoveredStatements="0" TotalStatements="5" CoveragePercent="0" />
+        <Method Name="DoesNotContain&lt;T&gt;(T,IEnumerable&lt;T&gt;,IEqualityComparer&lt;T&gt;):void" CoveredStatements="0" TotalStatements="5" CoveragePercent="0" />
+        <Method Name="DoesNotContain&lt;T&gt;(IEnumerable&lt;T&gt;,Predicate&lt;T&gt;):void" CoveredStatements="0" TotalStatements="8" CoveragePercent="0" />
+        <Method Name="DoesNotContain&lt;TKey,TValue&gt;(TKey,IReadOnlyDictionary&lt;TKey,TValue&gt;):void" CoveredStatements="0" TotalStatements="4" CoveragePercent="0" />
+        <Method Name="DoesNotContain&lt;TKey,TValue&gt;(TKey,IDictionary&lt;TKey,TValue&gt;):void" CoveredStatements="0" TotalStatements="4" CoveragePercent="0" />
+        <Method Name="DoesNotContain(string,string):void" CoveredStatements="0" TotalStatements="2" CoveragePercent="0" />
+        <Method Name="DoesNotContain(string,string,StringComparison):void" CoveredStatements="0" TotalStatements="3" CoveragePercent="0" />
+        <Method Name="DoesNotMatch(string,string):void" CoveredStatements="0" TotalStatements="4" CoveragePercent="0" />
+        <Method Name="DoesNotMatch(Regex,string):void" CoveredStatements="0" TotalStatements="4" CoveragePercent="0" />
+        <Method Name="Empty(IEnumerable):void" CoveredStatements="0" TotalStatements="8" CoveragePercent="0" />
+        <Method Name="EndsWith(string,string):void" CoveredStatements="0" TotalStatements="2" CoveragePercent="0" />
+        <Method Name="EndsWith(string,string,StringComparison):void" CoveredStatements="0" TotalStatements="3" CoveragePercent="0" />
+        <Method Name="Equal&lt;T&gt;(IEnumerable&lt;T&gt;,IEnumerable&lt;T&gt;):void" CoveredStatements="0" TotalStatements="2" CoveragePercent="0" />
+        <Method Name="Equal&lt;T&gt;(IEnumerable&lt;T&gt;,IEnumerable&lt;T&gt;,IEqualityComparer&lt;T&gt;):void" CoveredStatements="0" TotalStatements="2" CoveragePercent="0" />
+        <Method Name="Equal&lt;T&gt;(T,T):void" CoveredStatements="2" TotalStatements="2" CoveragePercent="100" />
+        <Method Name="Equal&lt;T&gt;(T,T,IEqualityComparer&lt;T&gt;):void" CoveredStatements="3" TotalStatements="4" CoveragePercent="75" />
+        <Method Name="Equal(double,double,int):void" CoveredStatements="0" TotalStatements="5" CoveragePercent="0" />
+        <Method Name="Equal(decimal,decimal,int):void" CoveredStatements="0" TotalStatements="5" CoveragePercent="0" />
+        <Method Name="Equal(DateTime,DateTime,TimeSpan):void" CoveredStatements="0" TotalStatements="4" CoveragePercent="0" />
+        <Method Name="Equal(string,string):void" CoveredStatements="2" TotalStatements="2" CoveragePercent="100" />
+        <Method Name="Equal(string,string,bool,bool,bool):void" CoveredStatements="21" TotalStatements="32" CoveragePercent="66" />
+        <Method Name="Equals(object,object):bool" CoveredStatements="0" TotalStatements="1" CoveragePercent="0" />
+        <Method Name="False(bool):void" CoveredStatements="0" TotalStatements="2" CoveragePercent="0" />
+        <Method Name="False(Nullable&lt;bool&gt;):void" CoveredStatements="0" TotalStatements="2" CoveragePercent="0" />
+        <Method Name="False(bool,string):void" CoveredStatements="0" TotalStatements="2" CoveragePercent="0" />
+        <Method Name="False(Nullable&lt;bool&gt;,string):void" CoveredStatements="0" TotalStatements="3" CoveragePercent="0" />
+        <Method Name="GetComparer&lt;T&gt;():IComparer&lt;T&gt;" CoveredStatements="0" TotalStatements="1" CoveragePercent="0" />
+        <Method Name="GetEqualityComparer&lt;T&gt;(IEqualityComparer):IEqualityComparer&lt;T&gt;" CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+        <Method Name="GuardArgumentNotNull(string,object):void" CoveredStatements="2" TotalStatements="3" CoveragePercent="67" />
+        <Method Name="InRange&lt;T&gt;(T,T,T):void" CoveredStatements="0" TotalStatements="2" CoveragePercent="0" />
+        <Method Name="InRange&lt;T&gt;(T,T,T,IComparer&lt;T&gt;):void" CoveredStatements="0" TotalStatements="4" CoveragePercent="0" />
+        <Method Name="IsAssignableFrom&lt;T&gt;(object):T" CoveredStatements="0" TotalStatements="2" CoveragePercent="0" />
+        <Method Name="IsAssignableFrom(Type,object):void" CoveredStatements="0" TotalStatements="4" CoveragePercent="0" />
+        <Method Name="IsLineEnding(char):bool" CoveredStatements="0" TotalStatements="1" CoveragePercent="0" />
+        <Method Name="IsNotType&lt;T&gt;(object):void" CoveredStatements="0" TotalStatements="2" CoveragePercent="0" />
+        <Method Name="IsNotType(Type,object):void" CoveredStatements="0" TotalStatements="4" CoveragePercent="0" />
+        <Method Name="IsType&lt;T&gt;(object):T" CoveredStatements="0" TotalStatements="2" CoveragePercent="0" />
+        <Method Name="IsType(Type,object):void" CoveredStatements="0" TotalStatements="12" CoveragePercent="0" />
+        <Method Name="IsWhiteSpace(char):bool" CoveredStatements="0" TotalStatements="1" CoveragePercent="0" />
+        <Method Name="Matches(string,string):void" CoveredStatements="0" TotalStatements="4" CoveragePercent="0" />
+        <Method Name="Matches(Regex,string):void" CoveredStatements="0" TotalStatements="4" CoveragePercent="0" />
+        <Method Name="NotEmpty(IEnumerable):void" CoveredStatements="0" TotalStatements="8" CoveragePercent="0" />
+        <Method Name="NotEqual&lt;T&gt;(IEnumerable&lt;T&gt;,IEnumerable&lt;T&gt;):void" CoveredStatements="0" TotalStatements="2" CoveragePercent="0" />
+        <Method Name="NotEqual&lt;T&gt;(IEnumerable&lt;T&gt;,IEnumerable&lt;T&gt;,IEqualityComparer&lt;T&gt;):void" CoveredStatements="0" TotalStatements="2" CoveragePercent="0" />
+        <Method Name="NotEqual&lt;T&gt;(T,T):void" CoveredStatements="0" TotalStatements="2" CoveragePercent="0" />
+        <Method Name="NotEqual&lt;T&gt;(T,T,IEqualityComparer&lt;T&gt;):void" CoveredStatements="0" TotalStatements="4" CoveragePercent="0" />
+        <Method Name="NotEqual(double,double,int):void" CoveredStatements="0" TotalStatements="5" CoveragePercent="0" />
+        <Method Name="NotEqual(decimal,decimal,int):void" CoveredStatements="0" TotalStatements="5" CoveragePercent="0" />
+        <Method Name="NotInRange&lt;T&gt;(T,T,T):void" CoveredStatements="0" TotalStatements="2" CoveragePercent="0" />
+        <Method Name="NotInRange&lt;T&gt;(T,T,T,IComparer&lt;T&gt;):void" CoveredStatements="0" TotalStatements="4" CoveragePercent="0" />
+        <Method Name="NotNull(object):void" CoveredStatements="0" TotalStatements="3" CoveragePercent="0" />
+        <Method Name="NotSame(object,object):void" CoveredStatements="0" TotalStatements="3" CoveragePercent="0" />
+        <Method Name="NotStrictEqual&lt;T&gt;(T,T):void" CoveredStatements="0" TotalStatements="2" CoveragePercent="0" />
+        <Method Name="Null(object):void" CoveredStatements="0" TotalStatements="3" CoveragePercent="0" />
+        <Method Name="ProperSubset&lt;T&gt;(ISet&lt;T&gt;,ISet&lt;T&gt;):void" CoveredStatements="0" TotalStatements="4" CoveragePercent="0" />
+        <Method Name="ProperSuperset&lt;T&gt;(ISet&lt;T&gt;,ISet&lt;T&gt;):void" CoveredStatements="0" TotalStatements="4" CoveragePercent="0" />
+        <Method Name="PropertyChanged(INotifyPropertyChanged,string,Action):void" CoveredStatements="0" TotalStatements="13" CoveragePercent="0">
+          <OwnCoverage CoveredStatements="0" TotalStatements="12" CoveragePercent="0" />
+          <AnonymousMethod Name="(object,PropertyChangedEventArgs):void" CoveredStatements="0" TotalStatements="1" CoveragePercent="0" />
+        </Method>
+        <Method Name="PropertyChanged(INotifyPropertyChanged,string,Func&lt;Task&gt;):void" CoveredStatements="0" TotalStatements="1" CoveragePercent="0" />
+        <Method Name="PropertyChangedAsync(INotifyPropertyChanged,string,Func&lt;Task&gt;):Task" CoveredStatements="0" TotalStatements="12" CoveragePercent="0">
+          <AnonymousMethod Name="(object,PropertyChangedEventArgs):void" CoveredStatements="0" TotalStatements="1" CoveragePercent="0" />
+          <InternalCompiledMethod Name="MoveNext():void" CoveredStatements="0" TotalStatements="11" CoveragePercent="0" />
+        </Method>
+        <Method Name="Raises&lt;T&gt;(Action&lt;EventHandler&lt;T&gt;&gt;,Action&lt;EventHandler&lt;T&gt;&gt;,Action):RaisedEvent&lt;T&gt;" CoveredStatements="0" TotalStatements="6" CoveragePercent="0" />
+        <Method Name="RaisesAny&lt;T&gt;(Action&lt;EventHandler&lt;T&gt;&gt;,Action&lt;EventHandler&lt;T&gt;&gt;,Action):RaisedEvent&lt;T&gt;" CoveredStatements="0" TotalStatements="4" CoveragePercent="0" />
+        <Method Name="RaisesAnyAsync&lt;T&gt;(Action&lt;EventHandler&lt;T&gt;&gt;,Action&lt;EventHandler&lt;T&gt;&gt;,Func&lt;Task&gt;):Task&lt;RaisedEvent&lt;T&gt;&gt;" CoveredStatements="0" TotalStatements="5" CoveragePercent="0">
+          <InternalCompiledMethod Name="MoveNext():void" CoveredStatements="0" TotalStatements="5" CoveragePercent="0" />
+        </Method>
+        <Method Name="RaisesAsync&lt;T&gt;(Action&lt;EventHandler&lt;T&gt;&gt;,Action&lt;EventHandler&lt;T&gt;&gt;,Func&lt;Task&gt;):Task&lt;RaisedEvent&lt;T&gt;&gt;" CoveredStatements="0" TotalStatements="7" CoveragePercent="0">
+          <InternalCompiledMethod Name="MoveNext():void" CoveredStatements="0" TotalStatements="7" CoveragePercent="0" />
+        </Method>
+        <Method Name="RaisesAsyncInternal&lt;T&gt;(Action&lt;EventHandler&lt;T&gt;&gt;,Action&lt;EventHandler&lt;T&gt;&gt;,Func&lt;Task&gt;):Task&lt;RaisedEvent&lt;T&gt;&gt;" CoveredStatements="0" TotalStatements="9" CoveragePercent="0">
+          <AnonymousMethod Name="(object,T):void" CoveredStatements="0" TotalStatements="2" CoveragePercent="0" />
+          <InternalCompiledMethod Name="MoveNext():void" CoveredStatements="0" TotalStatements="7" CoveragePercent="0" />
+        </Method>
+        <Method Name="RaisesInternal&lt;T&gt;(Action&lt;EventHandler&lt;T&gt;&gt;,Action&lt;EventHandler&lt;T&gt;&gt;,Action):RaisedEvent&lt;T&gt;" CoveredStatements="0" TotalStatements="8" CoveragePercent="0">
+          <OwnCoverage CoveredStatements="0" TotalStatements="6" CoveragePercent="0" />
+          <AnonymousMethod Name="(object,T):void" CoveredStatements="0" TotalStatements="2" CoveragePercent="0" />
+        </Method>
+        <Method Name="RecordException(Action):Exception" CoveredStatements="0" TotalStatements="5" CoveragePercent="0" />
+        <Method Name="RecordException(Func&lt;object&gt;):Exception" CoveredStatements="0" TotalStatements="8" CoveragePercent="0" />
+        <Method Name="RecordException(Func&lt;Task&gt;):Exception" CoveredStatements="0" TotalStatements="1" CoveragePercent="0" />
+        <Method Name="RecordExceptionAsync(Func&lt;Task&gt;):Task&lt;Exception&gt;" CoveredStatements="0" TotalStatements="5" CoveragePercent="0">
+          <InternalCompiledMethod Name="MoveNext():void" CoveredStatements="0" TotalStatements="5" CoveragePercent="0" />
+        </Method>
+        <Method Name="ReferenceEquals(object,object):bool" CoveredStatements="0" TotalStatements="1" CoveragePercent="0" />
+        <Method Name="Same(object,object):void" CoveredStatements="0" TotalStatements="3" CoveragePercent="0" />
+        <Method Name="Single(IEnumerable):object" CoveredStatements="0" TotalStatements="1" CoveragePercent="0" />
+        <Method Name="Single(IEnumerable,object):void" CoveredStatements="0" TotalStatements="3" CoveragePercent="0">
+          <OwnCoverage CoveredStatements="0" TotalStatements="2" CoveragePercent="0" />
+          <AnonymousMethod Name="(object):bool" CoveredStatements="0" TotalStatements="1" CoveragePercent="0" />
+        </Method>
+        <Method Name="Single&lt;T&gt;(IEnumerable&lt;T&gt;):T" CoveredStatements="0" TotalStatements="2" CoveragePercent="0">
+          <OwnCoverage CoveredStatements="0" TotalStatements="1" CoveragePercent="0" />
+          <AnonymousMethod Name="(T):bool" CoveredStatements="0" TotalStatements="1" CoveragePercent="0" />
+        </Method>
+        <Method Name="Single&lt;T&gt;(IEnumerable&lt;T&gt;,Predicate&lt;T&gt;):T" CoveredStatements="0" TotalStatements="15" CoveragePercent="0" />
+        <Method Name="SkipLineEnding(string,int):int" CoveredStatements="0" TotalStatements="5" CoveragePercent="0" />
+        <Method Name="SkipWhitespace(string,int):int" CoveredStatements="0" TotalStatements="6" CoveragePercent="0" />
+        <Method Name="StartsWith(string,string):void" CoveredStatements="2" TotalStatements="2" CoveragePercent="100" />
+        <Method Name="StartsWith(string,string,StringComparison):void" CoveredStatements="2" TotalStatements="3" CoveragePercent="67" />
+        <Method Name="StrictEqual&lt;T&gt;(T,T):void" CoveredStatements="0" TotalStatements="2" CoveragePercent="0" />
+        <Method Name="Subset&lt;T&gt;(ISet&lt;T&gt;,ISet&lt;T&gt;):void" CoveredStatements="0" TotalStatements="4" CoveragePercent="0" />
+        <Method Name="Superset&lt;T&gt;(ISet&lt;T&gt;,ISet&lt;T&gt;):void" CoveredStatements="0" TotalStatements="4" CoveragePercent="0" />
+        <Method Name="Throws&lt;T&gt;(Action):T" CoveredStatements="0" TotalStatements="1" CoveragePercent="0" />
+        <Method Name="Throws&lt;T&gt;(Func&lt;object&gt;):T" CoveredStatements="0" TotalStatements="1" CoveragePercent="0" />
+        <Method Name="Throws&lt;T&gt;(Func&lt;Task&gt;):T" CoveredStatements="0" TotalStatements="1" CoveragePercent="0" />
+        <Method Name="Throws(Type,Action):Exception" CoveredStatements="0" TotalStatements="1" CoveragePercent="0" />
+        <Method Name="Throws(Type,Func&lt;object&gt;):Exception" CoveredStatements="0" TotalStatements="1" CoveragePercent="0" />
+        <Method Name="Throws&lt;T&gt;(string,Action):T" CoveredStatements="0" TotalStatements="3" CoveragePercent="0" />
+        <Method Name="Throws&lt;T&gt;(string,Func&lt;object&gt;):T" CoveredStatements="0" TotalStatements="3" CoveragePercent="0" />
+        <Method Name="Throws&lt;T&gt;(string,Func&lt;Task&gt;):T" CoveredStatements="0" TotalStatements="1" CoveragePercent="0" />
+        <Method Name="Throws(Type,Exception):Exception" CoveredStatements="0" TotalStatements="6" CoveragePercent="0" />
+        <Method Name="ThrowsAny&lt;T&gt;(Action):T" CoveredStatements="0" TotalStatements="1" CoveragePercent="0" />
+        <Method Name="ThrowsAny&lt;T&gt;(Func&lt;object&gt;):T" CoveredStatements="0" TotalStatements="1" CoveragePercent="0" />
+        <Method Name="ThrowsAny(Type,Exception):Exception" CoveredStatements="0" TotalStatements="6" CoveragePercent="0" />
+        <Method Name="ThrowsAnyAsync&lt;T&gt;(Func&lt;Task&gt;):Task&lt;T&gt;" CoveredStatements="0" TotalStatements="2" CoveragePercent="0">
+          <InternalCompiledMethod Name="MoveNext():void" CoveredStatements="0" TotalStatements="2" CoveragePercent="0" />
+        </Method>
+        <Method Name="ThrowsAsync&lt;T&gt;(Func&lt;Task&gt;):Task&lt;T&gt;" CoveredStatements="0" TotalStatements="2" CoveragePercent="0">
+          <InternalCompiledMethod Name="MoveNext():void" CoveredStatements="0" TotalStatements="2" CoveragePercent="0" />
+        </Method>
+        <Method Name="ThrowsAsync(Type,Func&lt;Task&gt;):Task&lt;Exception&gt;" CoveredStatements="0" TotalStatements="2" CoveragePercent="0">
+          <InternalCompiledMethod Name="MoveNext():void" CoveredStatements="0" TotalStatements="2" CoveragePercent="0" />
+        </Method>
+        <Method Name="ThrowsAsync&lt;T&gt;(string,Func&lt;Task&gt;):Task&lt;T&gt;" CoveredStatements="0" TotalStatements="4" CoveragePercent="0">
+          <InternalCompiledMethod Name="MoveNext():void" CoveredStatements="0" TotalStatements="4" CoveragePercent="0" />
+        </Method>
+        <Method Name="True(bool):void" CoveredStatements="2" TotalStatements="2" CoveragePercent="100" />
+        <Method Name="True(Nullable&lt;bool&gt;):void" CoveredStatements="0" TotalStatements="2" CoveragePercent="0" />
+        <Method Name="True(bool,string):void" CoveredStatements="0" TotalStatements="2" CoveragePercent="0" />
+        <Method Name="True(Nullable&lt;bool&gt;,string):void" CoveredStatements="2" TotalStatements="3" CoveragePercent="67" />
+      </Type>
+    </Namespace>
+    <Namespace Name="Xunit.Sdk" CoveredStatements="13" TotalStatements="560" CoveragePercent="2">
+      <Type Name="AllException" CoveredStatements="0" TotalStatements="11" CoveragePercent="0">
+        <Constructor Name="AllException(int,Tuple&lt;int,object,Exception&gt;[])" CoveredStatements="0" TotalStatements="4" CoveragePercent="0" />
+        <Property Name="Failures:IReadOnlyList&lt;Exception&gt;" CoveredStatements="0" TotalStatements="2" CoveragePercent="0">
+          <PropertyGetter CoveredStatements="0" TotalStatements="2" CoveragePercent="0">
+            <OwnCoverage CoveredStatements="0" TotalStatements="1" CoveragePercent="0" />
+            <AnonymousMethod Name="(Tuple&lt;int,object,Exception&gt;):Exception" CoveredStatements="0" TotalStatements="1" CoveragePercent="0" />
+          </PropertyGetter>
+        </Property>
+        <Property Name="Message:string" CoveredStatements="0" TotalStatements="5" CoveragePercent="0">
+          <PropertyGetter CoveredStatements="0" TotalStatements="5" CoveragePercent="0">
+            <OwnCoverage CoveredStatements="0" TotalStatements="2" CoveragePercent="0" />
+            <AnonymousMethod Name="(Tuple&lt;int,object,Exception&gt;):string" CoveredStatements="0" TotalStatements="3" CoveragePercent="0" />
+          </PropertyGetter>
+        </Property>
+      </Type>
+      <Type Name="ArgumentFormatter" CoveredStatements="0" TotalStatements="147" CoveragePercent="0">
+        <Constructor Name="ArgumentFormatter()" CoveredStatements="0" TotalStatements="3" CoveragePercent="0" />
+        <Method Name="EscapeHexChars(string):string" CoveredStatements="0" TotalStatements="18" CoveragePercent="0" />
+        <Method Name="Format(object):string" CoveredStatements="0" TotalStatements="1" CoveragePercent="0" />
+        <Method Name="Format(object,int):string" CoveredStatements="0" TotalStatements="48" CoveragePercent="0" />
+        <Method Name="FormatComplexValue(object,int,Type):string" CoveredStatements="0" TotalStatements="19" CoveragePercent="0">
+          <OwnCoverage CoveredStatements="0" TotalStatements="11" CoveragePercent="0" />
+          <AnonymousMethod Name="(FieldInfo):bool" CoveredStatements="0" TotalStatements="1" CoveragePercent="0" />
+          <AnonymousMethod Name="(FieldInfo):{string,string}" CoveredStatements="0" TotalStatements="2" CoveragePercent="0">
+            <OwnCoverage CoveredStatements="0" TotalStatements="1" CoveragePercent="0" />
+            <AnonymousMethod Name="():object" CoveredStatements="0" TotalStatements="1" CoveragePercent="0" />
+          </AnonymousMethod>
+          <AnonymousMethod Name="(PropertyInfo):bool" CoveredStatements="0" TotalStatements="1" CoveragePercent="0" />
+          <AnonymousMethod Name="(PropertyInfo):{string,string}" CoveredStatements="0" TotalStatements="2" CoveragePercent="0">
+            <OwnCoverage CoveredStatements="0" TotalStatements="1" CoveragePercent="0" />
+            <AnonymousMethod Name="():object" CoveredStatements="0" TotalStatements="1" CoveragePercent="0" />
+          </AnonymousMethod>
+          <AnonymousMethod Name="({string,string}):string" CoveredStatements="0" TotalStatements="1" CoveragePercent="0" />
+          <AnonymousMethod Name="({string,string}):string" CoveredStatements="0" TotalStatements="1" CoveragePercent="0" />
+        </Method>
+        <Method Name="FormatEnumerable(IEnumerable&lt;object&gt;,int):string" CoveredStatements="0" TotalStatements="8" CoveragePercent="0">
+          <OwnCoverage CoveredStatements="0" TotalStatements="7" CoveragePercent="0" />
+          <AnonymousMethod Name="(object):string" CoveredStatements="0" TotalStatements="1" CoveragePercent="0" />
+        </Method>
+        <Method Name="FormatTypeName(Type):string" CoveredStatements="0" TotalStatements="21" CoveragePercent="0" />
+        <Method Name="TryGetEscapeSequence(char,out string):bool" CoveredStatements="0" TotalStatements="20" CoveragePercent="0" />
+        <Method Name="UnwrapException(Exception):Exception" CoveredStatements="0" TotalStatements="5" CoveragePercent="0" />
+        <Method Name="WrapAndGetFormattedValue(Func&lt;object&gt;,int):string" CoveredStatements="0" TotalStatements="4" CoveragePercent="0" />
+      </Type>
+      <Type Name="AssertActualExpectedException" CoveredStatements="0" TotalStatements="38" CoveragePercent="0">
+        <Constructor Name="AssertActualExpectedException(object,object,string,string,string)" CoveredStatements="0" TotalStatements="2" CoveragePercent="0" />
+        <Constructor Name="AssertActualExpectedException(object,object,string,string,string,Exception)" CoveredStatements="0" TotalStatements="9" CoveragePercent="0" />
+        <AutoProperty Name="Actual:string" CoveredStatements="0" TotalStatements="2" CoveragePercent="0">
+          <PropertyGetter CoveredStatements="0" TotalStatements="1" CoveragePercent="0" />
+          <PropertySetter CoveredStatements="0" TotalStatements="1" CoveragePercent="0" />
+        </AutoProperty>
+        <AutoProperty Name="ActualTitle:string" CoveredStatements="0" TotalStatements="2" CoveragePercent="0">
+          <PropertyGetter CoveredStatements="0" TotalStatements="1" CoveragePercent="0" />
+          <PropertySetter CoveredStatements="0" TotalStatements="1" CoveragePercent="0" />
+        </AutoProperty>
+        <AutoProperty Name="Expected:string" CoveredStatements="0" TotalStatements="2" CoveragePercent="0">
+          <PropertyGetter CoveredStatements="0" TotalStatements="1" CoveragePercent="0" />
+          <PropertySetter CoveredStatements="0" TotalStatements="1" CoveragePercent="0" />
+        </AutoProperty>
+        <AutoProperty Name="ExpectedTitle:string" CoveredStatements="0" TotalStatements="2" CoveragePercent="0">
+          <PropertyGetter CoveredStatements="0" TotalStatements="1" CoveragePercent="0" />
+          <PropertySetter CoveredStatements="0" TotalStatements="1" CoveragePercent="0" />
+        </AutoProperty>
+        <Property Name="Message:string" CoveredStatements="0" TotalStatements="4" CoveragePercent="0">
+          <PropertyGetter CoveredStatements="0" TotalStatements="4" CoveragePercent="0" />
+        </Property>
+        <Method Name="ConvertToSimpleTypeName(TypeInfo):string" CoveredStatements="0" TotalStatements="8" CoveragePercent="0">
+          <OwnCoverage CoveredStatements="0" TotalStatements="7" CoveragePercent="0" />
+          <AnonymousMethod Name="(Type):string" CoveredStatements="0" TotalStatements="1" CoveragePercent="0" />
+        </Method>
+        <Method Name="ConvertToString(object):string" CoveredStatements="0" TotalStatements="7" CoveragePercent="0" />
+      </Type>
+      <Type Name="AssertCollectionCountException" CoveredStatements="0" TotalStatements="2" CoveragePercent="0">
+        <Constructor Name="AssertCollectionCountException(int,int)" CoveredStatements="0" TotalStatements="2" CoveragePercent="0" />
+      </Type>
+      <Type Name="AssertComparer&lt;T&gt;" CoveredStatements="0" TotalStatements="15" CoveragePercent="0">
+        <Constructor Name="AssertComparer()" CoveredStatements="0" TotalStatements="1" CoveragePercent="0" />
+        <Method Name="Compare(T,T):int" CoveredStatements="0" TotalStatements="14" CoveragePercent="0" />
+      </Type>
+      <Type Name="AssertEqualityComparer&lt;T&gt;" CoveredStatements="13" TotalStatements="138" CoveragePercent="9">
+        <Type Name="TypeErasedEqualityComparer" CoveredStatements="0" TotalStatements="13" CoveragePercent="0">
+          <Constructor Name="TypeErasedEqualityComparer(IEqualityComparer)" CoveredStatements="0" TotalStatements="3" CoveragePercent="0" />
+          <Method Name="Equals(object,object):bool" CoveredStatements="0" TotalStatements="8" CoveragePercent="0" />
+          <Method Name="EqualsGeneric&lt;U&gt;(U,U):bool" CoveredStatements="0" TotalStatements="1" CoveragePercent="0" />
+          <Method Name="GetHashCode(object):int" CoveredStatements="0" TotalStatements="1" CoveragePercent="0" />
+        </Type>
+        <Constructor Name="AssertEqualityComparer(IEqualityComparer)" CoveredStatements="3" TotalStatements="4" CoveragePercent="75">
+          <OwnCoverage CoveredStatements="3" TotalStatements="3" CoveragePercent="100" />
+          <AnonymousMethod Name="():IEqualityComparer" CoveredStatements="0" TotalStatements="1" CoveragePercent="0" />
+        </Constructor>
+        <Constructor Name="AssertEqualityComparer()" CoveredStatements="0" TotalStatements="2" CoveragePercent="0" />
+        <Method Name="CheckIfDictionariesAreEqual(T,T):Nullable&lt;bool&gt;" CoveredStatements="0" TotalStatements="20" CoveragePercent="0" />
+        <Method Name="CheckIfEnumerablesAreEqual(T,T):Nullable&lt;bool&gt;" CoveredStatements="0" TotalStatements="23" CoveragePercent="0" />
+        <Method Name="CheckIfSetsAreEqual(T,T,TypeInfo):Nullable&lt;bool&gt;" CoveredStatements="0" TotalStatements="13" CoveragePercent="0" />
+        <Method Name="CompareTypedSets&lt;R&gt;(IEnumerable,IEnumerable):bool" CoveredStatements="0" TotalStatements="3" CoveragePercent="0" />
+        <Method Name="Equals(T,T):bool" CoveredStatements="10" TotalStatements="55" CoveragePercent="18" />
+        <Method Name="GetHashCode(T):int" CoveredStatements="0" TotalStatements="1" CoveragePercent="0" />
+        <Method Name="IsSet(TypeInfo):bool" CoveredStatements="0" TotalStatements="4" CoveragePercent="0">
+          <OwnCoverage CoveredStatements="0" TotalStatements="1" CoveragePercent="0" />
+          <AnonymousMethod Name="(Type):TypeInfo" CoveredStatements="0" TotalStatements="1" CoveragePercent="0" />
+          <AnonymousMethod Name="(TypeInfo):bool" CoveredStatements="0" TotalStatements="1" CoveragePercent="0" />
+          <AnonymousMethod Name="(TypeInfo):Type" CoveredStatements="0" TotalStatements="1" CoveragePercent="0" />
+        </Method>
+      </Type>
+      <Type Name="AssertEqualityComparerAdapter&lt;T&gt;" CoveredStatements="0" TotalStatements="5" CoveragePercent="0">
+        <Constructor Name="AssertEqualityComparerAdapter(IEqualityComparer&lt;T&gt;)" CoveredStatements="0" TotalStatements="3" CoveragePercent="0" />
+        <Method Name="Equals(object,object):bool" CoveredStatements="0" TotalStatements="1" CoveragePercent="0" />
+        <Method Name="GetHashCode(object):int" CoveredStatements="0" TotalStatements="1" CoveragePercent="0" />
+      </Type>
+      <Type Name="CollectionException" CoveredStatements="0" TotalStatements="27" CoveragePercent="0">
+        <Constructor Name="CollectionException(object,int,int,int,Exception)" CoveredStatements="0" TotalStatements="8" CoveragePercent="0" />
+        <AutoProperty Name="ActualCount:int" CoveredStatements="0" TotalStatements="2" CoveragePercent="0">
+          <PropertyGetter CoveredStatements="0" TotalStatements="1" CoveragePercent="0" />
+          <PropertySetter CoveredStatements="0" TotalStatements="1" CoveragePercent="0" />
+        </AutoProperty>
+        <AutoProperty Name="Collection:object" CoveredStatements="0" TotalStatements="2" CoveragePercent="0">
+          <PropertyGetter CoveredStatements="0" TotalStatements="1" CoveragePercent="0" />
+          <PropertySetter CoveredStatements="0" TotalStatements="1" CoveragePercent="0" />
+        </AutoProperty>
+        <AutoProperty Name="ExpectedCount:int" CoveredStatements="0" TotalStatements="2" CoveragePercent="0">
+          <PropertyGetter CoveredStatements="0" TotalStatements="1" CoveragePercent="0" />
+          <PropertySetter CoveredStatements="0" TotalStatements="1" CoveragePercent="0" />
+        </AutoProperty>
+        <AutoProperty Name="IndexFailurePoint:int" CoveredStatements="0" TotalStatements="2" CoveragePercent="0">
+          <PropertyGetter CoveredStatements="0" TotalStatements="1" CoveragePercent="0" />
+          <PropertySetter CoveredStatements="0" TotalStatements="1" CoveragePercent="0" />
+        </AutoProperty>
+        <Property Name="Message:string" CoveredStatements="0" TotalStatements="3" CoveragePercent="0">
+          <PropertyGetter CoveredStatements="0" TotalStatements="3" CoveragePercent="0" />
+        </Property>
+        <Property Name="StackTrace:string" CoveredStatements="0" TotalStatements="3" CoveragePercent="0">
+          <PropertyGetter CoveredStatements="0" TotalStatements="3" CoveragePercent="0" />
+        </Property>
+        <Method Name="FormatInnerException(Exception):string" CoveredStatements="0" TotalStatements="5" CoveragePercent="0">
+          <OwnCoverage CoveredStatements="0" TotalStatements="4" CoveragePercent="0" />
+          <AnonymousMethod Name="(string,int):string" CoveredStatements="0" TotalStatements="1" CoveragePercent="0" />
+        </Method>
+      </Type>
+      <Type Name="ContainsException" CoveredStatements="0" TotalStatements="2" CoveragePercent="0">
+        <Constructor Name="ContainsException(object,object)" CoveredStatements="0" TotalStatements="2" CoveragePercent="0" />
+      </Type>
+      <Type Name="DoesNotContainException" CoveredStatements="0" TotalStatements="2" CoveragePercent="0">
+        <Constructor Name="DoesNotContainException(object,object)" CoveredStatements="0" TotalStatements="2" CoveragePercent="0" />
+      </Type>
+      <Type Name="DoesNotMatchException" CoveredStatements="0" TotalStatements="2" CoveragePercent="0">
+        <Constructor Name="DoesNotMatchException(object,object)" CoveredStatements="0" TotalStatements="2" CoveragePercent="0" />
+      </Type>
+      <Type Name="EmptyException" CoveredStatements="0" TotalStatements="5" CoveragePercent="0">
+        <Constructor Name="EmptyException(IEnumerable)" CoveredStatements="0" TotalStatements="3" CoveragePercent="0" />
+        <AutoProperty Name="Collection:IEnumerable" CoveredStatements="0" TotalStatements="1" CoveragePercent="0">
+          <PropertyGetter CoveredStatements="0" TotalStatements="1" CoveragePercent="0" />
+        </AutoProperty>
+        <Property Name="Message:string" CoveredStatements="0" TotalStatements="1" CoveragePercent="0">
+          <PropertyGetter CoveredStatements="0" TotalStatements="1" CoveragePercent="0" />
+        </Property>
+      </Type>
+      <Type Name="EndsWithException" CoveredStatements="0" TotalStatements="8" CoveragePercent="0">
+        <Constructor Name="EndsWithException(string,string)" CoveredStatements="0" TotalStatements="2" CoveragePercent="0" />
+        <Method Name="ShortenActual(string,string):string" CoveredStatements="0" TotalStatements="3" CoveragePercent="0" />
+        <Method Name="ShortenExpected(string,string):string" CoveredStatements="0" TotalStatements="3" CoveragePercent="0" />
+      </Type>
+      <Type Name="EqualException" CoveredStatements="0" TotalStatements="47" CoveragePercent="0">
+        <Constructor Name="EqualException(object,object)" CoveredStatements="0" TotalStatements="4" CoveragePercent="0" />
+        <Constructor Name="EqualException(string,string,int,int)" CoveredStatements="0" TotalStatements="4" CoveragePercent="0" />
+        <Constructor Name="EqualException()" CoveredStatements="0" TotalStatements="1" CoveragePercent="0" />
+        <AutoProperty Name="ActualIndex:int" CoveredStatements="0" TotalStatements="2" CoveragePercent="0">
+          <PropertyGetter CoveredStatements="0" TotalStatements="1" CoveragePercent="0" />
+          <PropertySetter CoveredStatements="0" TotalStatements="1" CoveragePercent="0" />
+        </AutoProperty>
+        <AutoProperty Name="ExpectedIndex:int" CoveredStatements="0" TotalStatements="2" CoveragePercent="0">
+          <PropertyGetter CoveredStatements="0" TotalStatements="1" CoveragePercent="0" />
+          <PropertySetter CoveredStatements="0" TotalStatements="1" CoveragePercent="0" />
+        </AutoProperty>
+        <Property Name="Message:string" CoveredStatements="0" TotalStatements="3" CoveragePercent="0">
+          <PropertyGetter CoveredStatements="0" TotalStatements="3" CoveragePercent="0" />
+        </Property>
+        <Method Name="CreateMessage():string" CoveredStatements="0" TotalStatements="5" CoveragePercent="0" />
+        <Method Name="ShortenAndEncode(string,int,char):Tuple&lt;string,string&gt;" CoveredStatements="0" TotalStatements="26" CoveragePercent="0" />
+      </Type>
+      <Type Name="FalseException" CoveredStatements="0" TotalStatements="2" CoveragePercent="0">
+        <Constructor Name="FalseException(string,Nullable&lt;bool&gt;)" CoveredStatements="0" TotalStatements="2" CoveragePercent="0" />
+      </Type>
+      <Type Name="InRangeException" CoveredStatements="0" TotalStatements="9" CoveragePercent="0">
+        <Constructor Name="InRangeException(object,object,object)" CoveredStatements="0" TotalStatements="5" CoveragePercent="0" />
+        <Property Name="Actual:string" CoveredStatements="0" TotalStatements="1" CoveragePercent="0">
+          <PropertyGetter CoveredStatements="0" TotalStatements="1" CoveragePercent="0" />
+        </Property>
+        <Property Name="High:string" CoveredStatements="0" TotalStatements="1" CoveragePercent="0">
+          <PropertyGetter CoveredStatements="0" TotalStatements="1" CoveragePercent="0" />
+        </Property>
+        <Property Name="Low:string" CoveredStatements="0" TotalStatements="1" CoveragePercent="0">
+          <PropertyGetter CoveredStatements="0" TotalStatements="1" CoveragePercent="0" />
+        </Property>
+        <Property Name="Message:string" CoveredStatements="0" TotalStatements="1" CoveragePercent="0">
+          <PropertyGetter CoveredStatements="0" TotalStatements="1" CoveragePercent="0" />
+        </Property>
+      </Type>
+      <Type Name="IsAssignableFromException" CoveredStatements="0" TotalStatements="2" CoveragePercent="0">
+        <Constructor Name="IsAssignableFromException(Type,object)" CoveredStatements="0" TotalStatements="2" CoveragePercent="0" />
+      </Type>
+      <Type Name="IsNotTypeException" CoveredStatements="0" TotalStatements="2" CoveragePercent="0">
+        <Constructor Name="IsNotTypeException(Type,object)" CoveredStatements="0" TotalStatements="2" CoveragePercent="0" />
+      </Type>
+      <Type Name="IsTypeException" CoveredStatements="0" TotalStatements="2" CoveragePercent="0">
+        <Constructor Name="IsTypeException(string,string)" CoveredStatements="0" TotalStatements="2" CoveragePercent="0" />
+      </Type>
+      <Type Name="MatchesException" CoveredStatements="0" TotalStatements="2" CoveragePercent="0">
+        <Constructor Name="MatchesException(object,object)" CoveredStatements="0" TotalStatements="2" CoveragePercent="0" />
+      </Type>
+      <Type Name="NotEmptyException" CoveredStatements="0" TotalStatements="2" CoveragePercent="0">
+        <Constructor Name="NotEmptyException()" CoveredStatements="0" TotalStatements="2" CoveragePercent="0" />
+      </Type>
+      <Type Name="NotEqualException" CoveredStatements="0" TotalStatements="2" CoveragePercent="0">
+        <Constructor Name="NotEqualException(string,string)" CoveredStatements="0" TotalStatements="2" CoveragePercent="0" />
+      </Type>
+      <Type Name="NotInRangeException" CoveredStatements="0" TotalStatements="9" CoveragePercent="0">
+        <Constructor Name="NotInRangeException(object,object,object)" CoveredStatements="0" TotalStatements="5" CoveragePercent="0" />
+        <Property Name="Actual:string" CoveredStatements="0" TotalStatements="1" CoveragePercent="0">
+          <PropertyGetter CoveredStatements="0" TotalStatements="1" CoveragePercent="0" />
+        </Property>
+        <Property Name="High:string" CoveredStatements="0" TotalStatements="1" CoveragePercent="0">
+          <PropertyGetter CoveredStatements="0" TotalStatements="1" CoveragePercent="0" />
+        </Property>
+        <Property Name="Low:string" CoveredStatements="0" TotalStatements="1" CoveragePercent="0">
+          <PropertyGetter CoveredStatements="0" TotalStatements="1" CoveragePercent="0" />
+        </Property>
+        <Property Name="Message:string" CoveredStatements="0" TotalStatements="1" CoveragePercent="0">
+          <PropertyGetter CoveredStatements="0" TotalStatements="1" CoveragePercent="0" />
+        </Property>
+      </Type>
+      <Type Name="NotNullException" CoveredStatements="0" TotalStatements="2" CoveragePercent="0">
+        <Constructor Name="NotNullException()" CoveredStatements="0" TotalStatements="2" CoveragePercent="0" />
+      </Type>
+      <Type Name="NotSameException" CoveredStatements="0" TotalStatements="2" CoveragePercent="0">
+        <Constructor Name="NotSameException()" CoveredStatements="0" TotalStatements="2" CoveragePercent="0" />
+      </Type>
+      <Type Name="NullException" CoveredStatements="0" TotalStatements="2" CoveragePercent="0">
+        <Constructor Name="NullException(object)" CoveredStatements="0" TotalStatements="2" CoveragePercent="0" />
+      </Type>
+      <Type Name="ParameterCountMismatchException" CoveredStatements="0" TotalStatements="0" CoveragePercent="0" />
+      <Type Name="ProperSubsetException" CoveredStatements="0" TotalStatements="2" CoveragePercent="0">
+        <Constructor Name="ProperSubsetException(IEnumerable,IEnumerable)" CoveredStatements="0" TotalStatements="2" CoveragePercent="0" />
+      </Type>
+      <Type Name="ProperSupersetException" CoveredStatements="0" TotalStatements="2" CoveragePercent="0">
+        <Constructor Name="ProperSupersetException(IEnumerable,IEnumerable)" CoveredStatements="0" TotalStatements="2" CoveragePercent="0" />
+      </Type>
+      <Type Name="PropertyChangedException" CoveredStatements="0" TotalStatements="2" CoveragePercent="0">
+        <Constructor Name="PropertyChangedException(string)" CoveredStatements="0" TotalStatements="2" CoveragePercent="0" />
+      </Type>
+      <Type Name="RaisesException" CoveredStatements="0" TotalStatements="20" CoveragePercent="0">
+        <Constructor Name="RaisesException(Type)" CoveredStatements="0" TotalStatements="4" CoveragePercent="0" />
+        <Constructor Name="RaisesException(Type,Type)" CoveredStatements="0" TotalStatements="4" CoveragePercent="0" />
+        <AutoProperty Name="Actual:string" CoveredStatements="0" TotalStatements="1" CoveragePercent="0">
+          <PropertyGetter CoveredStatements="0" TotalStatements="1" CoveragePercent="0" />
+        </AutoProperty>
+        <AutoProperty Name="Expected:string" CoveredStatements="0" TotalStatements="1" CoveragePercent="0">
+          <PropertyGetter CoveredStatements="0" TotalStatements="1" CoveragePercent="0" />
+        </AutoProperty>
+        <Property Name="Message:string" CoveredStatements="0" TotalStatements="1" CoveragePercent="0">
+          <PropertyGetter CoveredStatements="0" TotalStatements="1" CoveragePercent="0" />
+        </Property>
+        <Property Name="StackTrace:string" CoveredStatements="0" TotalStatements="1" CoveragePercent="0">
+          <PropertyGetter CoveredStatements="0" TotalStatements="1" CoveragePercent="0" />
+        </Property>
+        <Method Name="ConvertToSimpleTypeName(TypeInfo):string" CoveredStatements="0" TotalStatements="8" CoveragePercent="0">
+          <OwnCoverage CoveredStatements="0" TotalStatements="7" CoveragePercent="0" />
+          <AnonymousMethod Name="(Type):string" CoveredStatements="0" TotalStatements="1" CoveragePercent="0" />
+        </Method>
+      </Type>
+      <Type Name="SameException" CoveredStatements="0" TotalStatements="2" CoveragePercent="0">
+        <Constructor Name="SameException(object,object)" CoveredStatements="0" TotalStatements="2" CoveragePercent="0" />
+      </Type>
+      <Type Name="SingleException" CoveredStatements="0" TotalStatements="4" CoveragePercent="0">
+        <Constructor Name="SingleException(string)" CoveredStatements="0" TotalStatements="2" CoveragePercent="0" />
+        <Method Name="Empty():SingleException" CoveredStatements="0" TotalStatements="1" CoveragePercent="0" />
+        <Method Name="MoreThanOne():SingleException" CoveredStatements="0" TotalStatements="1" CoveragePercent="0" />
+      </Type>
+      <Type Name="StartsWithException" CoveredStatements="0" TotalStatements="5" CoveragePercent="0">
+        <Constructor Name="StartsWithException(string,string)" CoveredStatements="0" TotalStatements="2" CoveragePercent="0" />
+        <Method Name="ShortenActual(string,string):string" CoveredStatements="0" TotalStatements="3" CoveragePercent="0" />
+      </Type>
+      <Type Name="SubsetException" CoveredStatements="0" TotalStatements="2" CoveragePercent="0">
+        <Constructor Name="SubsetException(IEnumerable,IEnumerable)" CoveredStatements="0" TotalStatements="2" CoveragePercent="0" />
+      </Type>
+      <Type Name="SupersetException" CoveredStatements="0" TotalStatements="2" CoveragePercent="0">
+        <Constructor Name="SupersetException(IEnumerable,IEnumerable)" CoveredStatements="0" TotalStatements="2" CoveragePercent="0" />
+      </Type>
+      <Type Name="ThrowsException" CoveredStatements="0" TotalStatements="8" CoveragePercent="0">
+        <Constructor Name="ThrowsException(Type)" CoveredStatements="0" TotalStatements="2" CoveragePercent="0" />
+        <Constructor Name="ThrowsException(Type,Exception)" CoveredStatements="0" TotalStatements="2" CoveragePercent="0" />
+        <Constructor Name="ThrowsException(Type,string,string,string,Exception)" CoveredStatements="0" TotalStatements="3" CoveragePercent="0" />
+        <Property Name="StackTrace:string" CoveredStatements="0" TotalStatements="1" CoveragePercent="0">
+          <PropertyGetter CoveredStatements="0" TotalStatements="1" CoveragePercent="0" />
+        </Property>
+      </Type>
+      <Type Name="TrueException" CoveredStatements="0" TotalStatements="2" CoveragePercent="0">
+        <Constructor Name="TrueException(string,Nullable&lt;bool&gt;)" CoveredStatements="0" TotalStatements="2" CoveragePercent="0" />
+      </Type>
+      <Type Name="XunitException" CoveredStatements="0" TotalStatements="22" CoveragePercent="0">
+        <Constructor Name="XunitException()" CoveredStatements="0" TotalStatements="2" CoveragePercent="0" />
+        <Constructor Name="XunitException(string)" CoveredStatements="0" TotalStatements="2" CoveragePercent="0" />
+        <Constructor Name="XunitException(string,Exception)" CoveredStatements="0" TotalStatements="3" CoveragePercent="0" />
+        <Constructor Name="XunitException(string,string)" CoveredStatements="0" TotalStatements="3" CoveragePercent="0" />
+        <Property Name="StackTrace:string" CoveredStatements="0" TotalStatements="1" CoveragePercent="0">
+          <PropertyGetter CoveredStatements="0" TotalStatements="1" CoveragePercent="0" />
+        </Property>
+        <AutoProperty Name="UserMessage:string" CoveredStatements="0" TotalStatements="2" CoveragePercent="0">
+          <PropertyGetter CoveredStatements="0" TotalStatements="1" CoveragePercent="0" />
+          <PropertySetter CoveredStatements="0" TotalStatements="1" CoveragePercent="0" />
+        </AutoProperty>
+        <Method Name="ToString():string" CoveredStatements="0" TotalStatements="9" CoveragePercent="0" />
+      </Type>
+    </Namespace>
+  </Assembly>
+</Root>

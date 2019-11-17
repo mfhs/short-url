@@ -63,22 +63,22 @@ namespace ShortUrl.Repository.Implementations
             }
         }
 
-        public IEnumerable<UrlInfoEntity> GetAll(int pageNumber, int pageSize)
-        {
-            using (_context)
-            {
-                try
-                {
-                    var entities = _context.Set<UrlInfoEntity>().Skip((pageNumber - 1) * pageSize).Take(pageSize);
-                    return entities;
-                }
-                catch (Exception exception)
-                {
-                    throw new Exception("Exception occured while reading list of url info! Message: " +
-                                        exception.Message);
-                }
-            }
-        }
+        //public IEnumerable<UrlInfoEntity> GetAll(int pageNumber, int pageSize)
+        //{
+        //    using (_context)
+        //    {
+        //        try
+        //        {
+        //            var entities = _context.Set<UrlInfoEntity>().Skip((pageNumber - 1) * pageSize).Take(pageSize);
+        //            return entities;
+        //        }
+        //        catch (Exception exception)
+        //        {
+        //            throw new Exception("Exception occured while reading list of url info! Message: " +
+        //                                exception.Message);
+        //        }
+        //    }
+        //}
 
         public bool Insert(UrlInfoEntity urlInfo)
         {
@@ -116,23 +116,23 @@ namespace ShortUrl.Repository.Implementations
             }
         }       
 
-        public bool Delete(long id)
-        {
-            using (_context)
-            {
-                try
-                {
-                    var urlInfo = _context.UrlInfo.Find(id);
-                    _context.Remove(urlInfo);
-                    var numberOfRowsAffected = _context.SaveChanges();
-                    return numberOfRowsAffected > 0;
-                }
-                catch (Exception exception)
-                {
-                    throw new Exception("Exception occured while deleting url info! Message: " +
-                                        exception.Message);
-                }
-            }
-        }
+        //public bool Delete(long id)
+        //{
+        //    using (_context)
+        //    {
+        //        try
+        //        {
+        //            var urlInfo = _context.UrlInfo.Find(id);
+        //            _context.Remove(urlInfo);
+        //            var numberOfRowsAffected = _context.SaveChanges();
+        //            return numberOfRowsAffected > 0;
+        //        }
+        //        catch (Exception exception)
+        //        {
+        //            throw new Exception("Exception occured while deleting url info! Message: " +
+        //                                exception.Message);
+        //        }
+        //    }
+        //}
     }
 }

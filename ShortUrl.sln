@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShortUrl.Service", "ShortUr
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShortUrl.Domain", "ShortUrl.Domain\ShortUrl.Domain.csproj", "{66C2E8A5-B6B0-4240-B27F-9C2A29822828}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShortUrl.Repository", "ShortUrl.Repository\ShortUrl.Repository.csproj", "{B3B4F9D5-BDCA-48A7-8040-057A5F4E42C9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShortUrl.Repository", "ShortUrl.Repository\ShortUrl.Repository.csproj", "{B3B4F9D5-BDCA-48A7-8040-057A5F4E42C9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShortUrl.Test", "ShortUrl.Test\ShortUrl.Test.csproj", "{EA6CB97A-5B05-4C87-A897-FCBBDF5F44B6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{B3B4F9D5-BDCA-48A7-8040-057A5F4E42C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B3B4F9D5-BDCA-48A7-8040-057A5F4E42C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B3B4F9D5-BDCA-48A7-8040-057A5F4E42C9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EA6CB97A-5B05-4C87-A897-FCBBDF5F44B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EA6CB97A-5B05-4C87-A897-FCBBDF5F44B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EA6CB97A-5B05-4C87-A897-FCBBDF5F44B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EA6CB97A-5B05-4C87-A897-FCBBDF5F44B6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
