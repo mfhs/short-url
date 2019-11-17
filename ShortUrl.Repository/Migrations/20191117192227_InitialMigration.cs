@@ -19,7 +19,7 @@ namespace ShortUrl.Repository.Migrations
                     CreatedBy = table.Column<string>(nullable: true),
                     OriginalUrl = table.Column<string>(nullable: false),
                     ShortCode = table.Column<string>(nullable: false),
-                    NumOfRequest = table.Column<long>(nullable: false)
+                    UrlHits = table.Column<long>(nullable: false)
                 },
                 constraints: table =>
                 {

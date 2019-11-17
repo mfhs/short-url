@@ -10,7 +10,7 @@ using ShortUrl.Repository;
 namespace ShortUrl.Repository.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20191116222716_InitialMigration")]
+    [Migration("20191117192227_InitialMigration")]
     partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -33,13 +33,13 @@ namespace ShortUrl.Repository.Migrations
 
                     b.Property<DateTime>("ExpireDate");
 
-                    b.Property<long>("UrlHits");
-
                     b.Property<string>("OriginalUrl")
                         .IsRequired();
 
                     b.Property<string>("ShortCode")
                         .IsRequired();
+
+                    b.Property<long>("UrlHits");
 
                     b.HasKey("Id");
 

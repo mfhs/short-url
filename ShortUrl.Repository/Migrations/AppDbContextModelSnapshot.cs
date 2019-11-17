@@ -31,13 +31,13 @@ namespace ShortUrl.Repository.Migrations
 
                     b.Property<DateTime>("ExpireDate");
 
-                    b.Property<long>("UrlHits");
-
                     b.Property<string>("OriginalUrl")
                         .IsRequired();
 
                     b.Property<string>("ShortCode")
                         .IsRequired();
+
+                    b.Property<long>("UrlHits");
 
                     b.HasKey("Id");
 
